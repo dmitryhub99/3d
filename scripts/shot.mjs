@@ -6,6 +6,7 @@
 //   node scripts/shot.mjs --crops               also save 2x crops of the People regions
 //   node scripts/shot.mjs --no-build            reuse the existing dist/
 //   node scripts/shot.mjs --out shots/tmp       output directory (default shots/)
+//   node scripts/shot.mjs --dist dist-tmp/me    build into a private dir (safe when several run at once)
 //
 // The app reads ?section=…, ?palette=1 and ?inspector=0 to boot into a state.
 import { execSync } from 'node:child_process'
@@ -47,11 +48,13 @@ const CROPS = {
 const only = opt('states')?.split(',')
 const scale = Number(opt('scale', '1'))
 const out = opt('out', 'shots')
+const dist = opt('dist', 'dist')
 mkdirSync(out, { recursive: true })
 
-if (!flag('no-build')) execSync('npx vite build --logLevel warn', { stdio: 'inherit' })
+if (!flag('no-build')) execSync(`npx vite build --logLevel warn --emptyOutDir --outDir ${dist}`, { stdio: 'inherit' })
 
-const server = await preview({ preview: { port: 4317, strictPort: false }, logLevel: 'warn' })
+const port = 4300 + Math.floor(Math.random() * 600)
+const server = await preview({ build: { outDir: dist }, preview: { port, strictPort: false }, logLevel: 'warn' })
 const base = server.resolvedUrls.local[0]
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome' })
 const page = await browser.newPage({ viewport: { width: 1440, height: 1024 }, deviceScaleFactor: scale })
