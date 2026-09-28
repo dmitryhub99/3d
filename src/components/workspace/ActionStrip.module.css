@@ -1,0 +1,43 @@
+.strip {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 28px;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.i16 { padding: 0 var(--s-16); }
+.i20 { padding: 0 var(--s-20); }
+.i24 { padding: 0 var(--s-24); }
+
+.count {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  flex: none;
+  font: var(--t-12);
+  font-weight: 500;
+  color: var(--text-2);
+  margin-right: var(--s-8);
+}
+
+.num {
+  font: var(--t-11m);
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+.sep {
+  flex: none;
+  padding: 0 var(--s-4);
+  font: var(--t-12);
+  color: var(--text-4);
+}
+
+/* Text buttons sit on 24h hit boxes inside the 28h foot */
+.action {
+  flex: none;
+}

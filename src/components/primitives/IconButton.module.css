@@ -1,0 +1,38 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  border-radius: var(--r-4);
+  color: var(--text-3);
+  background: transparent;
+}
+
+.s16 { width: var(--s-16); height: var(--s-16); }
+.s24 { width: var(--s-24); height: var(--s-24); }
+.s32 { width: var(--s-32); height: var(--s-32); }
+
+.bordered {
+  border: 1px solid var(--line-2);
+}
+
+.t1 { color: var(--text-1); }
+.t2 { color: var(--text-2); }
+
+.btn:hover {
+  background: var(--hover);
+  color: var(--text-1);
+}
+
+.btn:active,
+.pressed,
+.btn[aria-expanded='true'] {
+  background: var(--active);
+  color: var(--text-1);
+}
+
+.btn:disabled {
+  color: var(--text-4);
+  background: transparent;
+}

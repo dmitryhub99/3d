@@ -1,0 +1,18 @@
+.hints {
+  display: flex;
+  align-items: center;
+  gap: var(--s-12);
+  flex: none;
+  white-space: nowrap;
+}
+
+.pair {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.label {
+  font: var(--t-11);
+  color: var(--text-3);
+}

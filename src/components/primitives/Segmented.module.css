@@ -1,0 +1,52 @@
+/* The outline is drawn over the cells so each cell keeps its 24 × 24 box */
+.group {
+  position: relative;
+  display: inline-flex;
+  flex: none;
+  height: var(--s-24);
+  border-radius: var(--r-4);
+}
+
+.group::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--line-1);
+  border-radius: var(--r-4);
+  pointer-events: none;
+}
+
+.cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: var(--s-24);
+  height: var(--s-24);
+  color: var(--text-3);
+  background: transparent;
+}
+
+/* 1px line-1 dividers between cells */
+.group > * + * .cell {
+  box-shadow: inset 1px 0 0 var(--line-1);
+}
+
+.group > :first-child .cell {
+  border-radius: var(--r-4) 0 0 var(--r-4);
+}
+
+.group > :last-child .cell {
+  border-radius: 0 var(--r-4) var(--r-4) 0;
+}
+
+.cell:hover {
+  background: var(--hover);
+  color: var(--text-1);
+}
+
+.selected,
+.selected:hover {
+  background: var(--active);
+  color: var(--text-1);
+}

@@ -1,0 +1,96 @@
+/* 40px band (y 76–116 in People); sentence baseline 24px below the band top */
+.band {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--s-16);
+  flex: none;
+  height: 40px;
+  padding: 0 var(--s-16) 0 40px;
+  overflow: visible;
+}
+
+/* 14 × 14, centred 20px below the band top (y=96) */
+.search {
+  position: absolute;
+  left: var(--s-16);
+  top: 13px;
+  color: var(--text-3);
+}
+
+.sentence {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  column-gap: var(--s-16);
+  row-gap: var(--s-6);
+  flex: 1 1 auto;
+  min-width: 0;
+  margin-top: 10px;
+}
+
+.clause,
+.sort,
+.add {
+  display: inline-flex;
+  align-items: baseline;
+  flex: none;
+  height: 18px;
+  padding: 0;
+  font: var(--t-13);
+  white-space: nowrap;
+  border-radius: var(--r-2);
+  user-select: none;
+}
+
+/* Ordinary digits, raised 4px above the baseline, 2px before the clause */
+.index {
+  position: relative;
+  top: -4px;
+  margin-right: var(--s-2);
+  font: var(--t-10m);
+  color: var(--text-3);
+}
+
+.lead {
+  margin-right: var(--s-4);
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+.value {
+  font-weight: 500;
+  color: var(--text-1);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.clause:hover .value,
+.lit .value,
+.sort:hover .value,
+.sort[aria-expanded='true'] .value {
+  text-decoration-color: var(--text-3);
+}
+
+.add {
+  align-items: center;
+  gap: var(--s-4);
+  color: var(--text-3);
+}
+
+.add:hover,
+.addOpen {
+  color: var(--text-2);
+}
+
+.dirty {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  flex: none;
+  margin-top: 7px;
+  margin-right: calc(-1 * var(--s-8));
+}

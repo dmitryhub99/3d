@@ -1,0 +1,46 @@
+.mono {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  border-radius: var(--r-4);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--text-2);
+  letter-spacing: 0;
+  user-select: none;
+}
+
+.s20 { width: 20px; height: 20px; font-size: 9px; line-height: 12px; }
+.s24 { width: 24px; height: 24px; font-size: 10px; line-height: 12px; }
+.s28 { width: 28px; height: 28px; font-size: 11px; line-height: 12px; }
+.s56 { width: 56px; height: 56px; font: var(--t-20); letter-spacing: -0.01em; color: var(--text-1); box-shadow: inset 0 0 0 1px var(--line-2); }
+.s64 { width: 64px; height: 64px; font-size: 22px; line-height: 24px; font-weight: 600; letter-spacing: -0.01em; color: var(--text-1); box-shadow: inset 0 0 0 1px var(--line-2); }
+
+.h0 { background: var(--hue-0); }
+.h1 { background: var(--hue-1); }
+.h2 { background: var(--hue-2); }
+.h3 { background: var(--hue-3); }
+.h4 { background: var(--hue-4); }
+.h5 { background: var(--hue-5); }
+
+.t1 { color: var(--text-1); }
+.t2 { color: var(--text-2); }
+
+/* Acting-as org badge: 12 × 12 at the bottom right, 4px past the tile edge (§3) */
+.badge {
+  position: absolute;
+  right: calc(-1 * var(--s-4));
+  bottom: calc(-1 * var(--s-4));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--s-12);
+  height: var(--s-12);
+  border-radius: var(--r-2);
+  background: var(--hue-3);
+  box-shadow: 0 0 0 2px var(--frame);
+  font: 600 8px/8px var(--font-sans);
+  color: var(--text-1);
+}

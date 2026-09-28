@@ -1,0 +1,63 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-6);
+  flex: none;
+  height: var(--s-24);
+  padding: 0 var(--s-8);
+  border-radius: var(--r-4);
+  white-space: nowrap;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  color: var(--text-3);
+}
+
+.default {
+  font: var(--t-12);
+  font-weight: 500;
+  color: var(--text-2);
+}
+
+.quiet {
+  font: var(--t-12);
+  color: var(--text-3);
+}
+
+.strong {
+  font: var(--t-12);
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+.foot {
+  font: var(--t-11);
+  color: var(--text-3);
+}
+
+.btn:hover,
+.btn[aria-expanded='true'] {
+  background: var(--hover);
+  color: var(--text-1);
+}
+
+.btn:hover .icon,
+.btn[aria-expanded='true'] .icon {
+  color: var(--text-1);
+}
+
+.btn:active {
+  background: var(--active);
+}
+
+.btn:disabled {
+  color: var(--text-4);
+  background: transparent;
+}

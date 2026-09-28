@@ -1,0 +1,36 @@
+.ticks {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  flex: none;
+  height: 10px;
+}
+
+.slot {
+  display: contents;
+}
+
+.tick {
+  display: block;
+  flex: none;
+  box-sizing: border-box;
+  width: var(--s-8);
+  height: 10px;
+  transition: opacity 100ms linear;
+}
+
+.met {
+  background: var(--text-2);
+}
+
+.full {
+  background: var(--text-1);
+}
+
+.unmet {
+  border: 1px solid var(--text-4);
+}
+
+.dim {
+  opacity: 0.4;
+}

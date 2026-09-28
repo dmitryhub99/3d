@@ -1,0 +1,19 @@
+.glyph {
+  display: block;
+  flex: none;
+}
+
+.open,
+.freelance,
+.synced {
+  color: var(--ok);
+}
+
+.exploring {
+  color: var(--warn);
+}
+
+.not-looking,
+.offline {
+  color: var(--text-3);
+}

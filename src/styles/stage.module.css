@@ -1,0 +1,48 @@
+/* The stage (App.tsx). Full viewport at >= 1200px; below that a 1440 × 1024 box scaled to fit the width. */
+
+.full {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--frame);
+}
+
+/* Scaled: an outer scroller (vertical only, when the scaled height exceeds the viewport),
+   a sizer with the scaled footprint, and the 1440 × 1024 box itself. */
+.scroller {
+  position: fixed;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: var(--frame);
+}
+
+.sizer {
+  position: relative;
+  overflow: hidden;
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transform-origin: 0 0;
+  background: var(--frame);
+}
+
+.fill {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+/* Zero-size portal root at the stage's top left. No z-index, so overlays use the --z-* tokens directly. */
+.overlays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  overflow: visible;
+}

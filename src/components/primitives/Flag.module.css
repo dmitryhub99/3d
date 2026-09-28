@@ -1,0 +1,37 @@
+/* The wrapper takes no box: the flag measures its first child */
+.anchor {
+  display: contents;
+}
+
+.flag {
+  z-index: var(--z-flag);
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  height: var(--s-24);
+  padding: 0 var(--s-8);
+  background: var(--overlay);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-6);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.rail {
+  border-left: 0;
+  border-radius: 0 var(--r-4) var(--r-4) 0;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+  font: var(--t-12);
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-1);
+}
+
+.keys {
+  flex: none;
+}

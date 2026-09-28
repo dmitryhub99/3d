@@ -1,0 +1,168 @@
+/* 36px band; its hairline on y=76 is painted in its last pixel row (§2.1) */
+.strip {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  flex: none;
+  height: 36px;
+  padding: 0 var(--s-16);
+  box-shadow: inset 0 -1px 0 var(--line-1);
+}
+
+.area {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: stretch;
+}
+
+.tabs {
+  display: flex;
+  align-items: stretch;
+  gap: var(--s-20);
+  min-width: 0;
+}
+
+.tabWrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  flex: none;
+}
+
+.tab {
+  display: flex;
+  align-items: stretch;
+  gap: var(--s-6);
+  flex: none;
+  padding: 0;
+  color: var(--text-3);
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* label + count; full band height so the notch can sit on the hairline */
+.span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+}
+
+.label {
+  font: var(--t-13);
+  font-weight: 500;
+}
+
+.tab:hover {
+  color: var(--text-2);
+}
+
+.selected,
+.selected:hover {
+  color: var(--text-1);
+}
+
+.tab:focus-visible {
+  outline: none;
+}
+
+.tab:focus-visible .label {
+  outline: 1px solid var(--line-2);
+  outline-offset: 1px;
+  border-radius: var(--r-2);
+}
+
+.count {
+  font: var(--t-11m);
+  color: var(--text-3);
+}
+
+.delta {
+  display: flex;
+  align-items: center;
+  font: var(--t-11m);
+  color: var(--text-2);
+}
+
+/* Covers the hairline pixel (row 75) and the first pixel of the band below (row 76) */
+.notch {
+  left: 0;
+  bottom: -1px;
+  z-index: 1;
+}
+
+/* Selected tab ⋯: 16 × 16, 4px after the count; shown on hover or focus. Absolutely placed so nothing shifts */
+.more {
+  position: absolute;
+  top: 10px;
+  left: calc(100% + var(--s-4));
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 80ms linear;
+}
+
+.tabWrap:hover .more,
+.tabWrap:focus-within .more,
+.more:has([aria-expanded='true']) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.overflow {
+  display: flex;
+  align-items: center;
+  gap: var(--s-6);
+  flex: none;
+  font: var(--t-13);
+  font-weight: 500;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.overflow:hover,
+.overflow[aria-expanded='true'] {
+  color: var(--text-2);
+}
+
+.overflowNum {
+  font: var(--t-11m);
+}
+
+.add {
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.hint {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  font: var(--t-12);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.rename {
+  field-sizing: content;
+  min-width: 48px;
+  height: var(--s-24);
+  padding: 0 var(--s-4);
+  margin: 0 calc(-1 * var(--s-4) - 1px);
+  background: var(--sunken);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-4);
+  font: var(--t-13);
+  font-weight: 500;
+  color: var(--text-1);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  flex: none;
+  margin-left: var(--s-16);
+}

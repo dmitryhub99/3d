@@ -1,0 +1,111 @@
+/* Sunken 28h typeahead */
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 28px;
+  margin-bottom: var(--s-4);
+  background: var(--sunken);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-4);
+}
+
+.fieldIcon {
+  position: absolute;
+  left: var(--s-8);
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+.input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 100%;
+  padding: 0 var(--s-8) 0 26px;
+  font: var(--t-13);
+  color: var(--text-1);
+  caret-color: var(--text-1);
+}
+
+.input::placeholder {
+  color: var(--text-4);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  max-height: 336px;
+  overflow-y: auto;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  flex: none;
+  height: 28px;
+  padding: 0 var(--s-8);
+  border-radius: var(--r-4);
+  font: var(--t-13);
+  color: var(--text-1);
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+
+.row[data-highlighted] {
+  background: var(--active);
+}
+
+.rowLabel {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.count {
+  flex: none;
+  font: var(--t-11m);
+  color: var(--text-3);
+}
+
+.quote {
+  color: var(--text-2);
+}
+
+.pending {
+  color: var(--text-3);
+}
+
+.pending .quote {
+  color: var(--text-4);
+}
+
+.removeWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.separator {
+  height: 1px;
+  margin: var(--s-4) calc(-1 * var(--s-4));
+  background: var(--line-1);
+}
+
+.remove {
+  color: var(--text-2);
+}
+
+.remove[data-highlighted] {
+  color: var(--text-1);
+}
+
+.empty {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 var(--s-8);
+  font: var(--t-12);
+  color: var(--text-3);
+}

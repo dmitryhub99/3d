@@ -1,2 +1,101 @@
-:root { color-scheme: dark; background: #121212; color: #ece6dc; }
-html, body, #root { height: 100%; margin: 0; }
+/* STRIVO design tokens. §8.1 colors and §8.8 type, spacing, radii and layers, copied verbatim from docs/design-spec.md. */
+
+:root {
+  color-scheme: dark;
+
+  /* surfaces: frame → work → context */
+  --frame:    #121212;  /* rail, every cap, every foot, channel body. The canvas */
+  --surface:  #161514;  /* workspace body */
+  --hover:    #191817;  /* row hover, icon-button hover, rail hover square */
+  --raised:   #1C1B19;  /* inspector body, selected row/tile/slab (the seam) */
+  --active:   #221F1C;  /* selected rail square, selected view button, selected channel item, pressed */
+  --overlay:  #211F1D;  /* flags, menus, popovers, palette, notification drop */
+  --sunken:   #0F0F0E;  /* work thumbnails, key caps, focused inputs, palette input */
+
+  /* lines */
+  --line-1:   #282523;  /* lattice + hairlines (default) */
+  --line-2:   #3A3632;  /* control borders, hovered separator, focus outline, overlay borders */
+
+  /* text (contrast on --surface: 14.7 / 9.0 / 5.2 / 3.1) */
+  --text-1:   #ECE6DC;  /* names, values, selected labels */
+  --text-2:   #BDB5AA;  /* secondary: company, body copy, row line 1 values */
+  --text-3:   #8F877D;  /* tertiary: row line 2, labels, icons at rest. Minimum for any data */
+  --text-4:   #6A645D;  /* placeholders, disabled, unsatisfied tick outlines, crumb chevrons, past career segments. Never data */
+
+  /* accent: exactly four roles, see §8.1 rules */
+  --accent:       #E07A3F;
+  --accent-hover: #E8874E;
+  --accent-press: #C96A33;
+  --accent-ink:   #1A120C;  /* text on accent, 6.2:1 */
+
+  /* status: two hues + error */
+  --ok:   #7FA37A;  /* open, freelance, synced */
+  --warn: #C9A55A;  /* exploring */
+  --err:  #C0675C;  /* errors and failed sync only */
+
+  /* monogram hue tiles (initials text-2; text-1 at >=56px) */
+  --hue-0: #2C2A33;
+  --hue-1: #2A302C;
+  --hue-2: #332B27;
+  --hue-3: #2B2E33;
+  --hue-4: #31292E;
+  --hue-5: #2E2F28;
+}
+
+:root {
+  --font-sans: 'Instrument Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+
+  /* type shorthands (§8.3). Set the weight after the shorthand when it differs */
+  --t-10m: 500 10px/12px var(--font-mono);
+  --t-11m: 400 11px/16px var(--font-mono);
+  --t-11:  400 11px/16px var(--font-sans);
+  --t-12:  400 12px/16px var(--font-sans);
+  --t-12m: 500 12px/18px var(--font-mono);
+  --t-13:  400 13px/18px var(--font-sans);
+  --t-13r: 400 13px/20px var(--font-sans);
+  --t-14r: 400 14px/22px var(--font-sans);
+  --t-15r: 400 15px/24px var(--font-sans);
+  --t-20:  600 20px/24px var(--font-sans);   /* letter-spacing: -0.01em */
+  --t-28:  600 28px/32px var(--font-sans);   /* letter-spacing: -0.015em */
+
+  /* spacing */
+  --s-2: 2px; --s-4: 4px; --s-6: 6px; --s-8: 8px; --s-12: 12px; --s-16: 16px;
+  --s-20: 20px; --s-24: 24px; --s-32: 32px; --s-40: 40px; --s-48: 48px; --s-64: 64px;
+
+  /* radii */
+  --r-2: 2px; --r-4: 4px; --r-6: 6px;
+
+  /* layers */
+  --z-rows: 1;        /* row fills (selected fill covers the separator pixel) */
+  --z-cap: 10;        /* caps, crumb joint */
+  --z-global: 20;     /* global zone */
+  --z-notch: 30;      /* tether notch overlay */
+  --z-flag: 40;       /* flags */
+  --z-menu: 50;       /* menus, popovers, notification drop */
+  --z-palette: 60;    /* command palette */
+  --z-sheet: 70;      /* keyboard sheet */
+}
+
+/* Core additions (not in §8): tracking for the two display sizes, structural sizes from §8.4
+   for CSS use (lib/geometry.ts is the source of truth in TS), and CSS-only motion timings (§9). */
+:root {
+  --ls-20: -0.01em;
+  --ls-28: -0.015em;
+
+  --rail-w: 56px;
+  --cap-h: 40px;
+  --foot-h: 28px;
+  --strip-h: 36px;
+  --query-h: 40px;
+  --colhead-h: 28px;
+  --row-h: 44px;
+  --row-h-compact: 32px;
+  --channel-w: 200px;
+  --global-zone-w: 112px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+  --hover-out: 120ms linear;   /* row hover fill fades out on leave */
+  --reveal: 80ms linear;       /* hover-action cell, checkbox */
+}

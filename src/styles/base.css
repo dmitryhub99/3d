@@ -1,0 +1,147 @@
+/* Global reset and base type (§12.1). Every value is a token. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  background: var(--frame);
+  color: var(--text-2);
+  font: 400 13px/18px var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-synthesis: none;
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  margin: 0;
+}
+
+button {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: default;
+  text-align: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+input,
+textarea {
+  background: none;
+  border: 0;
+  padding: 0;
+  outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text-4);
+  opacity: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Native scrollbars are hidden on every body (§2.3) */
+* {
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+::selection {
+  background: var(--active);
+  color: var(--text-1);
+}
+
+/* Focus is never orange (§8.1): 1px line-2 outline with a 1px offset on controls */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 1px solid var(--line-2);
+  outline-offset: 1px;
+}
+
+/* Rows use an inset outline instead */
+[role='row']:focus-visible {
+  outline: 1px solid var(--line-2);
+  outline-offset: -1px;
+}
+
+/* Tabular figures for sans runs that contain numbers (§8.2) */
+.num {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Figures in mono (D7) */
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Visually hidden, still announced */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

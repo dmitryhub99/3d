@@ -1,0 +1,122 @@
+.popover {
+  z-index: var(--z-menu);
+  box-sizing: border-box;
+  background: var(--overlay);
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-6);
+  color: var(--text-1);
+  font: var(--t-13);
+  outline: none;
+}
+
+.popover:focus-visible {
+  outline: none;
+}
+
+.padded {
+  padding: var(--s-4);
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  height: 28px;
+  padding: 0 var(--s-8);
+  border-radius: var(--r-4);
+  font: var(--t-13);
+  color: var(--text-1);
+  white-space: nowrap;
+  user-select: none;
+  cursor: default;
+}
+
+.item[data-highlighted] {
+  background: var(--active);
+}
+
+.item[aria-disabled='true'] {
+  color: var(--text-4);
+}
+
+.muted {
+  color: var(--text-2);
+}
+
+.current {
+  color: var(--text-1);
+}
+
+.icon {
+  color: var(--text-3);
+}
+
+.item[data-highlighted] .icon {
+  color: var(--text-1);
+}
+
+.itemLabel {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-8);
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.labelText {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+
+.secondary {
+  flex: none;
+  font: var(--t-12);
+  color: var(--text-3);
+}
+
+.end {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-8);
+  flex: none;
+  margin-left: auto;
+}
+
+.hint {
+  font: var(--t-11m);
+  color: var(--text-3);
+}
+
+.check {
+  color: var(--text-1);
+}
+
+/* Context notch on the menu's left edge: covers the border pixel plus one (padding 4 + border 1) */
+.ctxNotch {
+  position: absolute;
+  left: -5px;
+  top: 6px;
+  width: 2px;
+  height: var(--s-16);
+  background: var(--accent);
+}
+
+.group {
+  display: flex;
+  align-items: center;
+  height: var(--s-24);
+  padding: 0 var(--s-8);
+  font: var(--t-11);
+  font-weight: 600;
+  color: var(--text-3);
+  user-select: none;
+}
+
+.separator {
+  height: 1px;
+  margin: var(--s-4) calc(-1 * var(--s-4));
+  background: var(--line-1);
+}

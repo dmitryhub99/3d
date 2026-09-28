@@ -1,0 +1,45 @@
+.token {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0;
+  max-width: 100%;
+  white-space: nowrap;
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.s13 { font: var(--t-13); }
+.s12 { font: var(--t-12); }
+
+.text-1 { color: var(--text-1); }
+.text-2 { color: var(--text-2); }
+.text-3 { color: var(--text-3); }
+
+.mark {
+  flex: none;
+  width: var(--s-4);
+  height: var(--s-4);
+  margin-right: var(--s-6);
+  background: var(--text-1);
+}
+
+.name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.years {
+  flex: none;
+  margin-left: var(--s-6);
+  font: var(--t-11m);
+  color: var(--text-3);
+}
+
+.block .years {
+  margin-left: auto;
+  padding-left: var(--s-8);
+}

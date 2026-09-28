@@ -1,0 +1,32 @@
+.box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  box-sizing: border-box;
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 1px solid var(--line-2);
+  border-radius: var(--r-2);
+  background: transparent;
+  color: var(--frame);
+}
+
+.interactive:hover {
+  border-color: var(--text-4);
+}
+
+.checked,
+.interactive.checked:hover {
+  background: var(--text-1);
+  border-color: var(--text-1);
+}
+
+.check {
+  color: var(--frame);
+}
+
+.box:disabled {
+  opacity: 0.5;
+}

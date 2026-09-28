@@ -1,0 +1,109 @@
+/* 28px band; hairline on its bottom edge (y=144 → pixel row 143) */
+.header {
+  position: relative;
+  flex: none;
+  height: 28px;
+  box-shadow: inset 0 -1px 0 var(--line-1);
+}
+
+.scrolled {
+  box-shadow: inset 0 -1px 0 var(--line-2);
+}
+
+.cell {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.end {
+  justify-content: flex-end;
+}
+
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-4);
+  min-width: 0;
+  max-width: calc(100% - 20px);
+  height: var(--s-16);
+  padding: 0;
+  font: var(--t-11);
+  font-weight: 500;
+  color: var(--text-3);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.end .label {
+  margin-right: 20px;
+}
+
+.text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+button.label:hover {
+  color: var(--text-2);
+}
+
+.sorted .label {
+  color: var(--text-2);
+}
+
+.arrow {
+  font: var(--t-11m);
+}
+
+/* Hover: line-2 hairlines on the column's edges (resize affordance) */
+.edge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line-2);
+  opacity: 0;
+}
+
+.edgeLeft {
+  left: 0;
+}
+
+.edgeRight {
+  right: 0;
+}
+
+.resizable {
+  cursor: col-resize;
+}
+
+/* A 6px hit zone around the right hairline */
+.resizable::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -3px;
+  right: -2px;
+}
+
+.more {
+  position: absolute;
+  right: var(--s-2);
+  top: 5px;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cell:hover .edge,
+.engaged .edge,
+.cell:hover .more,
+.engaged .more,
+.cell:focus-within .more {
+  opacity: 1;
+  pointer-events: auto;
+}

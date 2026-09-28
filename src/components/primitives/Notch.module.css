@@ -1,0 +1,6 @@
+.notch {
+  position: absolute;
+  display: block;
+  background: var(--accent);
+  pointer-events: none;
+}

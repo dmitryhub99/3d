@@ -1,0 +1,113 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-6);
+  flex: none;
+  box-sizing: border-box;
+  border-radius: var(--r-4);
+  white-space: nowrap;
+  user-select: none;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- primary: the one orange fill ---- */
+.primary {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.primary:hover {
+  background: var(--accent-hover);
+}
+
+.primary:active {
+  background: var(--accent-press);
+}
+
+.primary:disabled {
+  background: var(--active);
+  color: var(--text-4);
+}
+
+/* ---- secondary: outlined, transparent ---- */
+.secondary {
+  background: transparent;
+  border: 1px solid var(--line-2);
+  color: var(--text-1);
+}
+
+.secondary .icon {
+  color: var(--text-3);
+}
+
+.secondary:hover {
+  background: var(--hover);
+}
+
+.secondary:hover .icon {
+  color: var(--text-1);
+}
+
+.secondary:active {
+  background: var(--active);
+}
+
+.secondary:disabled {
+  color: var(--text-4);
+  background: transparent;
+}
+
+.muted {
+  color: var(--text-2);
+}
+
+/* ---- sizes ---- */
+.large {
+  height: var(--s-32);
+  font: var(--t-13);
+  font-weight: 500;
+}
+
+.primary.large {
+  padding: 0 var(--s-12);
+}
+
+.secondary.large {
+  padding: 0 10px;
+}
+
+.small {
+  height: var(--s-24);
+  padding: 0 var(--s-8);
+  font: var(--t-12);
+  font-weight: 500;
+}
+
+.secondary.small {
+  color: var(--text-2);
+}
+
+.secondary.small:hover {
+  color: var(--text-1);
+}
+
+.iconOnly.large {
+  width: var(--s-32);
+  padding: 0;
+}
+
+.iconOnly.small {
+  width: var(--s-24);
+  padding: 0;
+}
