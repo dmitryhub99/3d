@@ -1,0 +1,49 @@
+.thumb {
+  display: block;
+  background: var(--sunken);
+  border-radius: var(--r-2);
+  box-shadow: inset 0 0 0 1px var(--line-1);
+}
+.line,
+.selected,
+.marquee,
+.faint,
+.selectedLine,
+.lineBg {
+  fill: none;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+  vector-effect: non-scaling-stroke;
+}
+.line {
+  stroke: var(--text-4);
+}
+.lineBg {
+  stroke: var(--text-4);
+  fill: var(--sunken);
+}
+.faint {
+  stroke: var(--line-2);
+}
+.selected {
+  stroke: var(--text-2);
+}
+.selectedLine {
+  stroke: var(--text-3);
+}
+.marquee {
+  stroke: var(--line-2);
+  stroke-dasharray: 3 2;
+}
+.handle {
+  fill: var(--sunken);
+  stroke: var(--text-2);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.fill {
+  fill: var(--text-2);
+}
+.cursor {
+  fill: var(--text-3);
+}

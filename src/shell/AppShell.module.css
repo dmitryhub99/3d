@@ -1,0 +1,242 @@
+.shell {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  background: var(--frame);
+  overflow: hidden;
+}
+
+/* ---- columns: cap 40 · body · foot 28 ---- */
+.workspace {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+.cap {
+  position: relative;
+  z-index: var(--z-cap);
+  height: 40px;
+  flex: 0 0 40px;
+  display: flex;
+  align-items: center;
+  background: var(--frame);
+  box-shadow: inset 0 -1px 0 var(--line-1);
+  min-width: 0;
+}
+.cap.edge {
+  box-shadow: inset 0 -1px 0 var(--line-1), inset -1px 0 0 var(--line-1);
+}
+.body {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.surface { background: var(--surface); }
+.raised { background: var(--raised); }
+/* the separator on x=1040 lives in the workspace body's last pixel column; a selected row covers it (the seam) */
+.edgeBody { box-shadow: inset -1px 0 0 var(--line-1); }
+.foot {
+  height: 28px;
+  flex: 0 0 28px;
+  display: flex;
+  align-items: center;
+  background: var(--frame);
+  box-shadow: inset 0 1px 0 var(--line-1);
+  min-width: 0;
+}
+.foot > * { flex: 1 1 auto; min-width: 0; }
+.edgeFoot { box-shadow: inset 0 1px 0 var(--line-1), inset -1px 0 0 var(--line-1); }
+
+/* ---- workspace cap ---- */
+.history {
+  display: flex;
+  gap: 4px;
+  margin-left: 12px;
+}
+.capTick,
+.capTickInline {
+  width: 1px;
+  height: 16px;
+  background: var(--line-1);
+  flex: 0 0 1px;
+}
+.capTick { margin: 0 11px 0 12px; }
+.capTickInline { margin: 0 0; }
+.address {
+  display: flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 8px;
+  margin-left: -8px;
+  border-radius: var(--r-4);
+  font: var(--t-13);
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: text;
+  min-width: 0;
+  max-width: 536px;
+  overflow: hidden;
+}
+.address:hover { box-shadow: inset 0 0 0 1px var(--line-2); }
+.crumb { display: inline-flex; align-items: center; }
+.crumbSep { margin: 0 6px; color: var(--text-4); }
+.ancestor { color: var(--text-3); }
+.leaf { color: var(--text-1); }
+.spacer { flex: 1 1 auto; }
+.capActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ---- inspector ---- */
+.inspector {
+  position: relative;
+  flex: 0 0 auto;
+  height: 100%;
+  overflow: hidden;
+}
+.inspectorInner {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.inspectorInner .cap { padding-right: 124px; }
+.scroll {
+  height: 100%;
+  overflow-y: auto;
+}
+.inspectorCap {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+}
+.joint {
+  position: absolute;
+  left: -7px;
+  top: 12px;
+  width: 14px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  background: var(--frame);
+  color: var(--text-4);
+}
+.objectCrumb {
+  margin-left: 16px;
+  flex: 1 1 auto;
+  min-width: 0;
+  font: var(--t-13);
+  font-weight: 500;
+  color: var(--text-1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.readout {
+  margin-right: 8px;
+  font: var(--t-11m);
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+/* resize handle: 6px zone centered on the separator */
+.handle {
+  position: absolute;
+  z-index: 3;
+  left: -3px;
+  top: 40px;
+  bottom: 28px;
+  width: 6px;
+  cursor: col-resize;
+  touch-action: none;
+}
+.handleLine {
+  position: absolute;
+  left: 2px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: transparent;
+  transition: background 100ms linear 150ms;
+}
+.handle:hover .handleLine { background: var(--line-2); }
+.grip {
+  position: absolute;
+  left: 2px;
+  width: 2px;
+  height: 10px;
+  background:
+    linear-gradient(var(--text-3), var(--text-3)) 0 0 / 2px 2px no-repeat,
+    linear-gradient(var(--text-3), var(--text-3)) 0 4px / 2px 2px no-repeat,
+    linear-gradient(var(--text-3), var(--text-3)) 0 8px / 2px 2px no-repeat;
+  opacity: 0;
+  transition: opacity 100ms linear 150ms;
+  pointer-events: none;
+}
+.handle:hover .grip { opacity: 1; }
+
+/* ---- global zone: x 1328–1440, belongs to no panel ---- */
+.global {
+  position: absolute;
+  z-index: var(--z-global);
+  top: 0;
+  right: 0;
+  width: 112px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: var(--frame);
+  box-shadow: inset 0 -1px 0 var(--line-1);
+}
+.globalTick {
+  width: 1px;
+  height: 16px;
+  background: var(--line-1);
+  margin-right: 11px;
+}
+.trigger {
+  width: 64px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-left: 8px;
+  border-radius: var(--r-4);
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  color: var(--text-3);
+}
+.trigger:hover { background: var(--hover); color: var(--text-1); }
+.bell {
+  position: relative;
+  margin-left: 4px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-4);
+  color: var(--text-3);
+}
+.bell:hover { background: var(--hover); color: var(--text-1); }
+.unread {
+  position: absolute;
+  left: 15px;
+  top: 3px;
+  width: 5px;
+  height: 5px;
+  background: var(--accent);
+}
+
+/* ---- tether notch: 2 × 20 on the inspector separator ---- */
+.tether {
+  position: absolute;
+  z-index: var(--z-notch);
+  width: 2px;
+  background: var(--accent);
+  pointer-events: none;
+}

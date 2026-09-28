@@ -1,0 +1,32 @@
+.strip {
+  position: relative;
+}
+.bar {
+  position: relative;
+  height: 6px;
+}
+.past,
+.current {
+  position: absolute;
+  top: 0;
+  height: 6px;
+}
+.past {
+  background: var(--text-4);
+  opacity: 0.55;
+}
+.current {
+  background: var(--text-2);
+}
+.axis {
+  position: relative;
+  height: 12px;
+  margin-top: 4px;
+}
+.tick {
+  position: absolute;
+  top: 0;
+  font: var(--t-10m);
+  font-weight: 400;
+  color: var(--text-3);
+}
